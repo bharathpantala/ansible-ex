@@ -1,0 +1,20 @@
+---
+
+# Webserver variables_pkg
+web_pkg: apache2
+
+web_daemon: apache2
+
+pkg_manager: apt
+
+doc_root: /var/www/html/
+#strart web
+# ex: [ redhat - start_web_redhat debian - start_web_debian ]
+
+#start_web: start_web_debian
+
+#restart web
+# ex: [ redhat - restart_web_redhat debian - restart_web_debian ]
+
+#restart_web: restart_web_debian
+

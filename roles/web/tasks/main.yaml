@@ -1,0 +1,21 @@
+---
+- name: Install Webserver
+  package:
+         name: "{{ item }}"
+         state: present
+         update_cache: yes
+  with_items: 
+    - "{{ pkg_manager }}"
+    - "{{ web_pkg }}"
+ 
+  notify:
+          - start_web
+
+- name: Copy webpages to doc root.
+  copy: src=files/bharath/ dest={{ doc_root }} mode=0644
+      
+  notify:
+          - restart_web
+    
+  
+

@@ -1,0 +1,7 @@
+---
+- name: start_web
+  service: name= "{{ web_daemon }}" state=started enabled=yes
+
+- name: restart_web
+  service: name= "{{ web_daemon }}" state=restarted
+
