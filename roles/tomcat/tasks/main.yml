@@ -1,0 +1,84 @@
+---
+# Tasks for Tomcat
+- name: Create the folders for app
+  file:
+    dest: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ APP_SETUP_DIR }}"
+    - "{{ TOMCAT_HOME_DIR }}"
+    - "{{ JAVA_HOME }}"
+
+- name: Download the java and tomcat zips
+  get_url:
+    url: "{{ item }}"
+    dest: "{{ APP_SETUP_DIR }}"
+  with_items:
+    - "{{ TOMCAT_URL }}"
+    - "{{ JAVA_URL }}"
+
+- name: Extract JAVA
+  unarchive:
+    src: "{{ APP_SETUP_DIR }}/{{ JAVA_ZIP_FILENAME }}"
+    dest: "{{ JAVA_HOME }}"
+    remote_src: "{{ IS_SOURCE_IS_REMOTE }}"
+    extra_opts: [--strip-components=1]
+
+- name: Extract Tomcat
+  unarchive:
+    src: "{{ APP_SETUP_DIR }}/{{ TOMCAT_ZIP_FILENAME }}"
+    dest: "{{ TOMCAT_HOME_DIR }}"
+    remote_src: "{{ IS_SOURCE_IS_REMOTE }}"
+    extra_opts: [--strip-components=1]
+
+- name: copy the tomcat users
+  template:
+    src: "tomcat-users.xml"
+    dest: "{{ TOMCAT_HOME_DIR }}/conf/tomcat-users.xml"
+
+- name: copy the tomcat server conf
+  template:
+    src: "server.xml"
+    dest: "{{ TOMCAT_HOME_DIR }}/conf/server.xml"
+
+- name: copy the tomcat context
+  template:
+    src: "context.xml"
+    dest: "{{ item}}"
+  with_items:
+    - "{{ TOMCAT_HOME_DIR }}/webapps/manager/META-INF/context.xml"
+    - "{{ TOMCAT_HOME_DIR }}/webapps/host-manager/META-INF/context.xml"
+
+- name: create group
+  group: name=tomcat
+
+- name: create user tomcat
+  user: name=tomcat group=tomcat
+
+- name: change ownership
+  file:
+    dest: "{{ TOMCAT_HOME_DIR }}"
+    state: directory
+    owner: tomcat
+    group: tomcat
+    recurse: yes
+
+- name: copy the tomcat service file
+  template:
+    src: "tomcat.service"
+    dest: "/etc/systemd/system/"
+  notify:
+    - start-tomcat
+
+- name: copy the application
+  copy:
+    src: "{{ APP_WAR_NAME }}"
+    dest: "{{ TOMCAT_HOME_DIR }}/webapps/"
+  notify:
+    - restart-tomcat
+
+
+
+
+
+
