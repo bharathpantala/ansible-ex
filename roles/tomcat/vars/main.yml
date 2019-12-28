@@ -13,11 +13,11 @@ JAVA_HOME: "{{ APP_HOME_DIR }}/java"
 
 # TOMCAT and JAVA zips
 
-TOM_ZIP_FILENAME: "apache-tomcat-9.0.30.tar.gz"
+TOMCAT_ZIP_FILENAME: "apache-tomcat-9.0.30.tar.gz"
 
 JAVA_ZIP_FILENAME: "OpenJDK11U-jre_x64_linux_hotspot_11.0.5_10.tar.gz"
 
-TOMCAT_URL: http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.30/bin/http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.30/bin/apache-tomcat-9.0.30.tar.gzhttp://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.30/bin/apache-tomcat-9.0.30.tar.gz"
+TOMCAT_URL: "http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.30/bin/apache-tomcat-9.0.30.tar.gz"
 
 JAVA_URL: "https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.5%2B10/OpenJDK11U-jre_x64_linux_hotspot_11.0.5_10.tar.gz"
 
