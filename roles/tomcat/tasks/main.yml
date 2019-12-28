@@ -65,8 +65,8 @@
 
 - name: copy the tomcat service file
   template:
-    src: "tomcat.service"
-    dest: "/etc/systemd/system/"
+    src: "tomcat.yaml"
+    dest: "/etc/systemd/system/tomcat.service"
   notify:
     - start-tomcat
 
