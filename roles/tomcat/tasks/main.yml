@@ -33,12 +33,12 @@
 
 - name: copy the tomcat users
   template:
-    src: "tomcat-users.xml"
+    src: "tomcat-users.yaml"
     dest: "{{ TOMCAT_HOME_DIR }}/conf/tomcat-users.xml"
 
 - name: copy the tomcat server conf
   template:
-    src: "server.xml"
+    src: "server.yaml"
     dest: "{{ TOMCAT_HOME_DIR }}/conf/server.xml"
 
 - name: copy the tomcat context

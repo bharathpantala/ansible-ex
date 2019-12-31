@@ -1,2 +1,11 @@
 ---
 # defaults file for tomcat
+APP_WAR_NAME: "anu.war"
+
+TOMCAT_MANAGER: "system"
+
+TOMCAT_MANAGER_PASSWD: "password"
+
+SERVER_PORT: 80
+
+AJX_PORT: 8009

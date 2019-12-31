@@ -23,7 +23,19 @@ JAVA_URL: "https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/
 
 IS_SOURCE_IS_REMOTE: yes
 
+# Application variables
 APP_WAR_NAME: "anu.war"
+
+TOMCAT_MANAGER: "system"
+
+TOMCAT_MANAGER_PASSWD: "password"
+
+SERVER_PORT:
+
+AJX_PORT:
+
+###
+
 
 
 
