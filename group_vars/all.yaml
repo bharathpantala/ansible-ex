@@ -3,10 +3,7 @@
 #Tomcat Home dir
 APP_HOME_DIR: "/opt"
 
-# Tomcat Setup dir
 APP_SETUP_DIR: "{{ APP_HOME_DIR }}/setup"
-
-TOMCAT_HOME_DIR: "{{ APP_HOME_DIR }}/tomcat"
 
 # JAVA HOME
 JAVA_HOME: "{{ APP_HOME_DIR }}/java"
@@ -24,23 +21,11 @@ JAVA_URL: "https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/
 IS_SOURCE_IS_REMOTE: yes
 
 # Application variables
-APP_WAR_NAME: "anu.war"
 
-TOMCAT_MANAGER: "system"
+APP_TOMCAT_MANAGER: "system"
 
-TOMCAT_MANAGER_PASSWD: "password"
+APP_TOMCAT_MANAGER_PASSWORD: "password"
 
-SERVER_PORT:
+APP_SERVER_PORT: 8080
 
-AJX_PORT:
-
-###
-
-
-
-
-
-
-
-
-
+APP_AJX_PORT: 9090

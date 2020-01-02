@@ -1,5 +1,6 @@
 ---
-- hosts: app
+- hosts: "{{ hosts | default('tomcat') }}"
   become: true
+  gather_facts: true
   roles:
-          - tomcat
+    - tomcat
