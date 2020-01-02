@@ -1,5 +1,5 @@
 ---
-# Tasks for Tomcat
+# Tasks for java
 - name: Create the folders for java
   file:
     dest: "{{ item }}"

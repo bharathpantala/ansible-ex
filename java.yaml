@@ -1,6 +1,6 @@
 ---
-- hosts: "{{ hosts | default('java') }}"
+- hosts: java
   become: true
-  gather_facts: true
+  gather_facts: false
   roles:
     - java
