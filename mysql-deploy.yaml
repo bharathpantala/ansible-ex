@@ -45,14 +45,14 @@
 
     - name: Create a database
       mysql_db:
-              name:
-                      - JDA_ANU
-                      - BHARATH_ANU
-              state: present
+        name:
+          - JDA_ANU
+          - BHARATH_ANU
+        state: present
 
     - name: Create a User for App
       mysql_user:
-              name: "{{ MYSQL_USERNAME }}"
-              password: "{{ MYSQL_PASSWD }}"
-              priv: '*.*:ALL'
-              state: present
+        name: "{{ MYSQL_USERNAME }}"
+        password: "{{ MYSQL_PASSWD }}"
+        priv: '*.*:ALL'
+        state: present
