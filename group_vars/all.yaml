@@ -1,0 +1,31 @@
+---
+##########################################3 
+#Tomcat Home dir
+APP_HOME_DIR: "/opt"
+
+APP_SETUP_DIR: "{{ APP_HOME_DIR }}/setup"
+
+# JAVA HOME
+APP_JAVA_HOME: "{{ APP_HOME_DIR }}/java"
+
+# TOMCAT and JAVA zips
+
+APP_TOMCAT_ZIP_FILENAME: "apache-tomcat-9.0.30.tar.gz"
+
+APP_JAVA_ZIP_FILENAME: "OpenJDK11U-jre_x64_linux_hotspot_11.0.5_10.tar.gz"
+
+APP_TOMCAT_URL: "http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.30/bin/apache-tomcat-9.0.30.tar.gz"
+
+APP_JAVA_URL: "https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.5%2B10/OpenJDK11U-jre_x64_linux_hotspot_11.0.5_10.tar.gz"
+
+IS_SOURCE_IS_REMOTE: yes
+
+# Application variables
+
+APP_TOMCAT_MANAGER: "anuanu"
+
+APP_TOMCAT_MANAGER_PASSWORD: "Bharath10@"
+
+APP_SERVER_PORT: 8080
+
+APP_AJX_PORT: 9090

@@ -7,22 +7,13 @@
   with_items:
     - "{{ APP_SETUP_DIR }}"
     - "{{ TOMCAT_HOME_DIR }}"
-    - "{{ JAVA_HOME }}"
 
-- name: Download the java and tomcat zips
+- name: Download the tomcat zips
   get_url:
     url: "{{ item }}"
     dest: "{{ APP_SETUP_DIR }}"
   with_items:
     - "{{ TOMCAT_URL }}"
-    - "{{ JAVA_URL }}"
-
-- name: Extract JAVA
-  unarchive:
-    src: "{{ APP_SETUP_DIR }}/{{ JAVA_ZIP_FILENAME }}"
-    dest: "{{ JAVA_HOME }}"
-    remote_src: "{{ IS_SOURCE_IS_REMOTE }}"
-    extra_opts: [--strip-components=1]
 
 - name: Extract Tomcat
   unarchive:
@@ -33,12 +24,12 @@
 
 - name: copy the tomcat users
   template:
-    src: "tomcat-users.xml"
+    src: "tomcat-users.yaml"
     dest: "{{ TOMCAT_HOME_DIR }}/conf/tomcat-users.xml"
 
 - name: copy the tomcat server conf
   template:
-    src: "server.xml"
+    src: "server.yaml"
     dest: "{{ TOMCAT_HOME_DIR }}/conf/server.xml"
 
 - name: copy the tomcat context
