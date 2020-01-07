@@ -48,3 +48,19 @@
       with_items:
        - “{{ ansible_hostname }}”
        - 127.0.0.1
+       – ::1
+       – localhost
+
+    - name: Create a database
+      mysql_db:
+        name:
+          - JDA_ANU
+          - BHARATH_ANU
+        state: present
+
+    - name: Create a User for App
+      mysql_user:
+        name: "{{ MYSQL_USERNAME }}"
+        password: "{{ MYSQL_PASSWD }}"
+        priv: '*.*:ALL'
+        state: present
